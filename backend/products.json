@@ -1,0 +1,152 @@
+[
+  {
+    "id": "laptop_student",
+    "name": "Student Laptop",
+    "category": "Electronics > Laptop",
+    "price": 55000,
+    "currency": "INR",
+    "tags": ["laptop", "student", "coding", "computer science"],
+    "target_user": ["college student", "cs student"],
+    "use_cases": ["coding", "online classes", "projects"],
+    "specs": {
+      "processor": "Intel i5",
+      "ram": "16GB",
+      "storage": "512GB SSD",
+      "battery": "10 hours",
+      "weight": "1.8kg"
+    },
+    "pros": [
+      "Fast for programming",
+      "Excellent multitasking",
+      "Long battery life"
+    ],
+    "cons": [
+      "More expensive than tablets",
+      "Less portable"
+    ],
+    "buy_links": {
+      "amazon": "https://www.amazon.in/s?k=student+laptop+i5+16gb",
+      "flipkart": "https://www.flipkart.com/search?q=student+laptop+i5+16gb"
+    }
+  },
+
+  {
+    "id": "tablet_budget",
+    "name": "Budget Tablet",
+    "category": "Electronics > Tablet",
+    "price": 18000,
+    "currency": "INR",
+    "tags": ["tablet", "budget", "notes", "students"],
+    "target_user": ["student", "casual learner"],
+    "use_cases": ["note taking", "reading", "online learning"],
+    "specs": {
+      "display": "10 inch",
+      "stylus_support": "Yes",
+      "battery": "8 hours"
+    },
+    "pros": [
+      "Affordable",
+      "Highly portable"
+    ],
+    "cons": [
+      "Not suitable for heavy coding"
+    ],
+    "buy_links": {
+      "amazon": "https://www.amazon.in/s?k=budget+tablet+10+inch",
+      "flipkart": "https://www.flipkart.com/search?q=budget+tablet"
+    }
+  },
+
+  {
+    "id": "book_dsa",
+    "name": "Data Structures & Algorithms Book",
+    "category": "Books > Education",
+    "price": 700,
+    "currency": "INR",
+    "tags": ["book", "dsa", "coding", "interview prep"],
+    "target_user": ["cs student", "software engineer"],
+    "use_cases": ["learning", "interview preparation"],
+    "specs": {
+      "language": "English",
+      "format": "Paperback"
+    },
+    "pros": [
+      "Excellent for fundamentals",
+      "Interview-focused content"
+    ],
+    "buy_links": {
+      "amazon": "https://www.amazon.in/s?k=data+structures+algorithms+book",
+      "flipkart": "https://www.flipkart.com/search?q=data+structures+algorithms+book"
+    }
+  },
+
+  {
+    "id": "mens_casual_shirt",
+    "name": "Men's Casual Shirt",
+    "category": "Fashion > Men",
+    "price": 1500,
+    "currency": "INR",
+    "tags": ["shirt", "men", "casual", "clothing"],
+    "target_user": ["men"],
+    "use_cases": ["daily wear", "college", "office casual"],
+    "specs": {
+      "material": "Cotton",
+      "fit": "Regular"
+    },
+    "pros": [
+      "Comfortable fabric",
+      "Stylish design"
+    ],
+    "buy_links": {
+      "amazon": "https://www.amazon.in/s?k=mens+casual+shirt",
+      "flipkart": "https://www.flipkart.com/search?q=mens+casual+shirt"
+    }
+  },
+
+  {
+    "id": "powerbank_20000",
+    "name": "Power Bank 20000mAh",
+    "category": "Accessories > Electronics",
+    "price": 2000,
+    "currency": "INR",
+    "tags": ["power bank", "charging", "travel"],
+    "target_user": ["student", "traveler"],
+    "use_cases": ["charging on the go"],
+    "specs": {
+      "capacity": "20000mAh",
+      "ports": "Dual USB",
+      "fast_charging": "Yes"
+    },
+    "pros": [
+      "High capacity",
+      "Fast charging support"
+    ],
+    "buy_links": {
+      "amazon": "https://www.amazon.in/s?k=power+bank+20000mah",
+      "flipkart": "https://www.flipkart.com/search?q=power+bank+20000mah"
+    }
+  },
+
+  {
+    "id": "wireless_headphones",
+    "name": "Wireless Bluetooth Headphones",
+    "category": "Accessories > Audio",
+    "price": 3000,
+    "currency": "INR",
+    "tags": ["headphones", "wireless", "music", "calls"],
+    "target_user": ["student", "professional"],
+    "use_cases": ["music", "online classes", "calls"],
+    "specs": {
+      "battery": "20 hours",
+      "noise_cancellation": "Passive"
+    },
+    "pros": [
+      "Comfortable fit",
+      "Good battery life"
+    ],
+    "buy_links": {
+      "amazon": "https://www.amazon.in/s?k=wireless+bluetooth+headphones",
+      "flipkart": "https://www.flipkart.com/search?q=wireless+bluetooth+headphones"
+    }
+  }
+]

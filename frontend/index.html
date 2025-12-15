@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>AI Sales Assistant</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="wa-container">
+
+  <div class="wa-header">
+    <div class="avatar">🤖</div>
+    <div class="info">
+      <div class="name">AI Sales Assistant</div>
+      <div class="status">online</div>
+    </div>
+    <button class="speaker" onclick="toggleVoice()">🔊</button>
+  </div>
+
+  <div id="chat-box" class="wa-chat">
+    <div class="msg bot">
+      Hi 👋 How can I help you today?
+      <span class="timestamp"></span>
+    </div>
+  </div>
+
+  <div class="wa-input">
+    <button class="mic" onclick="startVoice()">🎙️</button>
+    <input id="user-input" type="text" placeholder="Type a message" />
+    <button class="send" onclick="sendMessage()">➤</button>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
