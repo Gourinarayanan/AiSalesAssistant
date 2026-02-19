@@ -26,11 +26,13 @@ A web-based AI sales assistant built with FastAPI backend and vanilla JavaScript
 
 1. Go to [Render.com](https://render.com) and sign up
 2. Connect your GitHub account
-3. Create a new Web Service
+3. Create a new **Web Service**
 4. Select your `AiSalesAssistant` repository
 5. Configure:
-   - **Build Command**: `pip install -r backend/requirements.txt`
-   - **Start Command**: `uvicorn backend.main:app --host 0.0.0.0 --port $PORT`
+   - **Root Directory**: `backend`
+   - **Runtime**: Python 3
+   - **Build Command**: `pip install -r requirements.txt`
+   - **Start Command**: `uvicorn main:app --host 0.0.0.0 --port $PORT`
 6. Add environment variable: `GROQ_API_KEY` with your API key
 7. Deploy
 
