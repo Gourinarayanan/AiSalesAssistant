@@ -10,7 +10,7 @@ API_URL = "https://api.groq.com/openai/v1/chat/completions"
 
 
 def load_products():
-    with open("products.json", "r", encoding="utf-8") as f:
+    with open("backend/products.json", "r", encoding="utf-8") as f:
         return json.load(f)
 
 
