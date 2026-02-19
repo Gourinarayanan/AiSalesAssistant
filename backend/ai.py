@@ -68,5 +68,9 @@ PRODUCT CATALOG:
         json=payload
     )
 
-    response.raise_for_status()
+    try:
+        response.raise_for_status()
+    except requests.exceptions.HTTPError:
+        print("Groq API error:", response.text)
+        raise
     return response.json()["choices"][0]["message"]["content"]
