@@ -59,6 +59,7 @@ PRODUCT CATALOG:
         "stream": False
     }
 
+    print("Calling Groq API with POST method to:", API_URL)
     response = requests.post(
         API_URL,
         headers={
