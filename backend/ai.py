@@ -11,6 +11,9 @@ API_URL = "https://api.groq.com/openai/v1/chat/completions"
 
 def load_products():
     with open("products.json", "r", encoding="utf-8") as f:
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    products_path = os.path.join(base_dir, "products.json")
+    with open(products_path, "r", encoding="utf-8") as f:
         return json.load(f)
 
 
