@@ -29,7 +29,6 @@ Price: ₹{p['price']}
 Tags: {', '.join(p.get('tags', []))}
 Use cases: {', '.join(p.get('use_cases', []))}
 Purchase options: Amazon, Flipkart
----
 """
 
     # 🔒 HARD-CONSTRAINED SYSTEM PROMPT
@@ -37,43 +36,28 @@ Purchase options: Amazon, Flipkart
 You are a friendly, intelligent AI assistant similar to ChatGPT.
 
 ABSOLUTE RULES (MUST FOLLOW):
-- You NEVER include URLs or web links in responses.
-- You NEVER mention generic domains like amazon.com or flipkart.com.
-- You NEVER ask users to search manually.
-- You do NOT own a physical store.
-- You do NOT offer discounts, coupons, or free shipping.
-- You do NOT collect addresses, phone numbers, or payments.
-- You do NOT invent store policies or availability.
 
 PRODUCT RULES:
-- You can recommend ONLY products from the catalog below.
-- All products are available ONLY via Amazon or Flipkart.
-- When a user wants to buy a product:
   - Confirm availability
   - Say exactly: "You can purchase this using the options below."
 
 CONVERSATION STYLE:
-- Talk naturally and conversationally like ChatGPT.
-- Answer general questions freely.
-- Recommend products ONLY when relevant.
-- Ask clarifying questions if needed.
-- Do NOT push sales aggressively.
 
 IMPORTANT:
-- Let the UI handle all purchase redirection.
-- Do NOT output links under any circumstance.
 
 PRODUCT CATALOG:
 {product_text}
 """
 
     payload = {
-        "model": "llama3-8b-8192",
+            "model": "llama3-70b-8192",
         "messages": [
             {"role": "system", "content": system_prompt},
             *conversation_history
         ],
-        "temperature": 0.35
+        "temperature": 0.35,
+            "stream": False
+        "stream": False
     }
 
     response = requests.post(
