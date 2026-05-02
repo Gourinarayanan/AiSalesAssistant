@@ -16,6 +16,7 @@ A web-based AI sales assistant built with FastAPI backend and vanilla JavaScript
 3. Activate: `.venv\Scripts\activate` (Windows) or `source .venv/bin/activate` (Linux/Mac)
 4. Install dependencies: `pip install -r backend/requirements.txt`
 5. Set environment variable: Create `.env` file with `GROQ_API_KEY=your_key_here`
+   - If deploying, set `GROQ_API_KEY` in your platform's environment variables instead of committing `.env`
 6. Run backend: `uvicorn backend.main:app --reload`
 7. Run frontend: `cd frontend && python -m http.server 3000`
 8. Open `http://localhost:3000` in browser

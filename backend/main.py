@@ -1,16 +1,18 @@
-@app.get("/")
-def health_check():
-    return {"status": "ok"}
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-from ai import get_ai_reply
+from ai import get_ai_reply   # ✅ FIXED import
 
 app = FastAPI()
 
+@app.get("/")
+def health_check():
+    return {"status": "ok"}
+
+# CORS (allow frontend to call backend)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["*"],   # You can later restrict to your Vercel URL
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -18,11 +20,9 @@ app.add_middleware(
 # Simple in-memory session storage
 sessions = {}
 
-
 class ChatRequest(BaseModel):
     message: str
     session_id: str = "default"
-
 
 @app.post("/chat")
 def chat(req: ChatRequest):

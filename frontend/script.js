@@ -7,7 +7,12 @@ let voiceEnabled = true;
 let recognition;
 
 /* =====================
-   TIME UTILITY
+   🔥 IMPORTANT: BACKEND URL
+===================== */
+const BACKEND_URL = "https://aisalesassistant-backend.onrender.com"; // 👈 CHANGE if needed
+
+/* =====================
+   TIME
 ===================== */
 function getTime() {
   return new Date().toLocaleTimeString([], {
@@ -18,7 +23,6 @@ function getTime() {
 
 /* =====================
    PRODUCT CATALOG
-   (LINKED TO AMAZON / FLIPKART)
 ===================== */
 const productCatalog = {
   "student laptop": {
@@ -45,7 +49,7 @@ const productCatalog = {
 };
 
 /* =====================
-   ADD MESSAGE TO CHAT
+   ADD MESSAGE
 ===================== */
 function addMessage(text, sender) {
   const msg = document.createElement("div");
@@ -67,7 +71,7 @@ function addMessage(text, sender) {
 }
 
 /* =====================
-   SEND MESSAGE TO BACKEND
+   SEND MESSAGE (FIXED)
 ===================== */
 async function sendMessage() {
   const message = input.value.trim();
@@ -81,10 +85,13 @@ async function sendMessage() {
   const typing = chatBox.lastChild;
 
   try {
-    const res = await fetch("https://aisalesassistant.onrender.com/chat", {
+    const res = await fetch(`${BACKEND_URL}/chat`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ message })
+      body: JSON.stringify({
+        message: message,
+        session_id: "user1"
+      })
     });
 
     const data = await res.json();
@@ -97,13 +104,13 @@ async function sendMessage() {
   }
 }
 
-/* ENTER KEY SUPPORT */
+/* ENTER KEY */
 input.addEventListener("keydown", e => {
   if (e.key === "Enter") sendMessage();
 });
 
 /* =====================
-   PRODUCT CARD RENDER
+   PRODUCT CARD
 ===================== */
 function renderProductCard(text) {
   const lower = text.toLowerCase();
@@ -119,11 +126,11 @@ function renderProductCard(text) {
         <div class="product-price">${p.price}</div>
         <div class="product-features">${p.features}</div>
         <div class="product-actions">
-          <button class="buy-btn" onclick="buyAmazon('${p.amazon}')">
-            Buy on Amazon
+          <button onclick="window.open('${p.amazon}', '_blank')">
+            Amazon
           </button>
-          <button class="compare-btn" onclick="buyFlipkart('${p.flipkart}')">
-            Buy on Flipkart
+          <button onclick="window.open('${p.flipkart}', '_blank')">
+            Flipkart
           </button>
         </div>
       `;
@@ -136,22 +143,11 @@ function renderProductCard(text) {
 }
 
 /* =====================
-   BUY REDIRECTS
-===================== */
-function buyAmazon(url) {
-  window.open(url, "_blank");
-}
-
-function buyFlipkart(url) {
-  window.open(url, "_blank");
-}
-
-/* =====================
-   🎙️ VOICE INPUT
+   VOICE INPUT
 ===================== */
 function startVoice() {
   if (!("webkitSpeechRecognition" in window)) {
-    alert("Voice input not supported in this browser.");
+    alert("Voice input not supported.");
     return;
   }
 
@@ -171,56 +167,41 @@ function startVoice() {
 }
 
 /* =====================
-   🔊 SMART AI VOICE OUTPUT
-   (NO CUT-OFF, SENTENCE CHUNKS)
+   VOICE OUTPUT
 ===================== */
 function smartSpeak(text) {
   if (!voiceEnabled || !("speechSynthesis" in window)) return;
 
   speechSynthesis.cancel();
 
-  // Clean unnecessary technical noise
-  let cleanText = text
-    .replace(/₹\d+[,0-9]*/g, "")
-    .replace(/Intel.*SSD/gi, "")
-    .replace(/\s+/g, " ")
-    .trim();
-
-  const sentences = cleanText.match(/[^.!?]+[.!?]*/g);
+  const sentences = text.match(/[^.!?]+[.!?]*/g);
   if (!sentences) return;
 
-  let index = 0;
+  let i = 0;
 
   function speakNext() {
-    if (index >= sentences.length || !voiceEnabled) return;
+    if (i >= sentences.length) return;
 
-    const utterance = new SpeechSynthesisUtterance(
-      sentences[index].trim()
-    );
-    utterance.lang = "en-US";
-    utterance.rate = 0.95;
-    utterance.pitch = 1;
-    utterance.volume = 1;
+    const utter = new SpeechSynthesisUtterance(sentences[i]);
+    utter.rate = 0.95;
 
-    utterance.onend = () => {
-      index++;
-      setTimeout(speakNext, 150); // natural pause
+    utter.onend = () => {
+      i++;
+      setTimeout(speakNext, 150);
     };
 
-    speechSynthesis.speak(utterance);
+    speechSynthesis.speak(utter);
   }
 
   speakNext();
 }
 
 function stopSpeaking() {
-  if ("speechSynthesis" in window) {
-    speechSynthesis.cancel();
-  }
+  if ("speechSynthesis" in window) speechSynthesis.cancel();
 }
 
 /* =====================
-   🔇 TOGGLE VOICE
+   TOGGLE VOICE
 ===================== */
 function toggleVoice() {
   voiceEnabled = !voiceEnabled;
