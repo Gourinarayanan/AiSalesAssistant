@@ -7,7 +7,7 @@ let voiceEnabled = true;
 let recognition;
 
 /* =====================
-🔥 BACKEND URL (LIVE)
+BACKEND URL
 ===================== */
 const BACKEND_URL = "https://aisalesassistant-backend.onrender.com";
 
@@ -71,7 +71,7 @@ smartSpeak(text);
 }
 
 /* =====================
-SEND MESSAGE (FIXED)
+SEND MESSAGE
 ===================== */
 async function sendMessage() {
 const message = input.value.trim();
@@ -81,28 +81,31 @@ stopSpeaking();
 addMessage(message, "user");
 input.value = "";
 
-addMessage("Typing…", "bot");
+addMessage("Typing...", "bot");
 const typing = chatBox.lastChild;
 
 try {
 const res = await fetch(`${BACKEND_URL}/chat`, {
 method: "POST",
-headers: { "Content-Type": "application/json" },
+headers: {
+"Content-Type": "application/json"
+},
 body: JSON.stringify({
 message: message,
 session_id: "user1"
 })
 });
 
-```
+if (!res.ok) throw new Error("API error");
+
 const data = await res.json();
 typing.remove();
-addMessage(data.reply, "bot");
-```
+addMessage(data.reply || "No response", "bot");
 
 } catch (err) {
+console.error(err);
 typing.remove();
-addMessage("⚠️ Server error. Please try again.", "bot");
+addMessage("⚠️ Server not responding. Try again.", "bot");
 }
 }
 
@@ -121,24 +124,20 @@ for (const key in productCatalog) {
 if (lower.includes(key)) {
 const p = productCatalog[key];
 
-```
   const card = document.createElement("div");
-  card.className = "product-card";
-  card.innerHTML = `
-    <div class="product-title">${p.title}</div>
-    <div class="product-price">${p.price}</div>
-    <div class="product-features">${p.features}</div>
-    <div class="product-actions">
-      <button onclick="window.open('${p.amazon}', '_blank')">Amazon</button>
-      <button onclick="window.open('${p.flipkart}', '_blank')">Flipkart</button>
-    </div>
-  `;
+card.className = "product-card";
 
-  chatBox.appendChild(card);
-  chatBox.scrollTop = chatBox.scrollHeight;
-  break;
-}
-```
+card.innerHTML = `
+  <div class="product-title">${p.title}</div>
+  <div class="product-price">${p.price}</div>
+  <div class="product-features">${p.features}</div>
+  <div class="product-actions">
+    <button onclick="window.open('${p.amazon}', '_blank')">Amazon</button>
+    <button onclick="window.open('${p.flipkart}', '_blank')">Flipkart</button>
+  </div>
+`;
+chatBox.appendChild(card);
+chatBox.scrollTop = chatBox.scrollHeight;
 
 }
 }
@@ -153,6 +152,7 @@ return;
 }
 
 stopSpeaking();
+
 recognition = new webkitSpeechRecognition();
 recognition.lang = "en-US";
 
@@ -183,7 +183,6 @@ let i = 0;
 function speakNext() {
 if (i >= sentences.length) return;
 
-```
 const utter = new SpeechSynthesisUtterance(sentences[i]);
 utter.rate = 0.95;
 
@@ -193,7 +192,6 @@ utter.onend = () => {
 };
 
 speechSynthesis.speak(utter);
-```
 
 }
 
