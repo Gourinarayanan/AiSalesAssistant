@@ -1,152 +1,214 @@
 [
   {
-    "id": "laptop_student",
-    "name": "Student Laptop",
-    "category": "Electronics > Laptop",
-    "price": 55000,
+    "id": "laptop_macbook_air",
+    "name": "Apple MacBook Air M2",
+    "category": "Electronics > Laptops",
+    "price": 99000,
     "currency": "INR",
-    "tags": ["laptop", "student", "coding", "computer science"],
-    "target_user": ["college student", "cs student"],
-    "use_cases": ["coding", "online classes", "projects"],
+    "tags": ["laptop", "apple", "macbook", "premium"],
+    "target_user": ["professional", "creator", "student"],
+    "use_cases": ["video editing", "coding", "everyday use"],
     "specs": {
-      "processor": "Intel i5",
-      "ram": "16GB",
-      "storage": "512GB SSD",
-      "battery": "10 hours",
-      "weight": "1.8kg"
+      "processor": "Apple M2 Chip",
+      "ram": "8GB Unified Memory",
+      "storage": "256GB SSD",
+      "battery": "Up to 18 hours",
+      "weight": "1.24kg"
     },
-    "pros": [
-      "Fast for programming",
-      "Excellent multitasking",
-      "Long battery life"
-    ],
-    "cons": [
-      "More expensive than tablets",
-      "Less portable"
-    ],
+    "pros": ["Incredible battery life", "Silent (fanless)", "Premium build quality"],
     "buy_links": {
-      "amazon": "https://www.amazon.in/s?k=student+laptop+i5+16gb",
-      "flipkart": "https://www.flipkart.com/search?q=student+laptop+i5+16gb"
+      "amazon": "https://www.amazon.in/s?k=macbook+air+m2",
+      "flipkart": "https://www.flipkart.com/search?q=macbook+air+m2"
     }
   },
-
   {
-    "id": "tablet_budget",
-    "name": "Budget Tablet",
-    "category": "Electronics > Tablet",
-    "price": 18000,
+    "id": "smartphone_samsung_s24",
+    "name": "Samsung Galaxy S24 Ultra",
+    "category": "Electronics > Smartphones",
+    "price": 129000,
     "currency": "INR",
-    "tags": ["tablet", "budget", "notes", "students"],
-    "target_user": ["student", "casual learner"],
-    "use_cases": ["note taking", "reading", "online learning"],
+    "tags": ["smartphone", "samsung", "android", "flagship", "camera"],
+    "target_user": ["tech enthusiast", "photographer"],
+    "use_cases": ["mobile photography", "gaming", "productivity"],
     "specs": {
-      "display": "10 inch",
-      "stylus_support": "Yes",
-      "battery": "8 hours"
+      "display": "6.8-inch Dynamic AMOLED 2X",
+      "processor": "Snapdragon 8 Gen 3",
+      "camera": "200MP Quad Camera",
+      "battery": "5000mAh",
+      "extra": "S-Pen Included"
     },
-    "pros": [
-      "Affordable",
-      "Highly portable"
-    ],
-    "cons": [
-      "Not suitable for heavy coding"
-    ],
+    "pros": ["Best-in-class display", "Incredible zoom camera", "Integrated S-Pen"],
     "buy_links": {
-      "amazon": "https://www.amazon.in/s?k=budget+tablet+10+inch",
-      "flipkart": "https://www.flipkart.com/search?q=budget+tablet"
+      "amazon": "https://www.amazon.in/s?k=samsung+galaxy+s24+ultra",
+      "flipkart": "https://www.flipkart.com/search?q=samsung+s24+ultra"
     }
   },
-
   {
-    "id": "book_dsa",
-    "name": "Data Structures & Algorithms Book",
-    "category": "Books > Education",
-    "price": 700,
+    "id": "headphones_sony_xm5",
+    "name": "Sony WH-1000XM5",
+    "category": "Audio > Headphones",
+    "price": 29990,
     "currency": "INR",
-    "tags": ["book", "dsa", "coding", "interview prep"],
-    "target_user": ["cs student", "software engineer"],
-    "use_cases": ["learning", "interview preparation"],
+    "tags": ["audio", "headphones", "sony", "anc", "wireless"],
+    "target_user": ["audiophile", "traveler", "office worker"],
+    "use_cases": ["music listening", "noise cancellation", "calls"],
     "specs": {
-      "language": "English",
-      "format": "Paperback"
+      "type": "Over-Ear Wireless",
+      "battery": "30 Hours",
+      "noise_cancellation": "Industry Leading ANC",
+      "weight": "250g"
     },
-    "pros": [
-      "Excellent for fundamentals",
-      "Interview-focused content"
-    ],
+    "pros": ["Unmatched noise cancellation", "Extremely comfortable", "Superb sound quality"],
     "buy_links": {
-      "amazon": "https://www.amazon.in/s?k=data+structures+algorithms+book",
-      "flipkart": "https://www.flipkart.com/search?q=data+structures+algorithms+book"
+      "amazon": "https://www.amazon.in/s?k=sony+wh-1000xm5",
+      "flipkart": "https://www.flipkart.com/search?q=sony+wh1000xm5"
     }
   },
-
   {
-    "id": "mens_casual_shirt",
-    "name": "Men's Casual Shirt",
-    "category": "Fashion > Men",
-    "price": 1500,
+    "id": "smartwatch_apple_series9",
+    "name": "Apple Watch Series 9",
+    "category": "Wearables > Smartwatch",
+    "price": 41900,
     "currency": "INR",
-    "tags": ["shirt", "men", "casual", "clothing"],
-    "target_user": ["men"],
-    "use_cases": ["daily wear", "college", "office casual"],
+    "tags": ["watch", "apple", "fitness", "smartwatch"],
+    "target_user": ["fitness enthusiast", "iphone user"],
+    "use_cases": ["fitness tracking", "notifications", "health monitoring"],
     "specs": {
-      "material": "Cotton",
-      "fit": "Regular"
+      "display": "Always-On Retina OLED",
+      "processor": "S9 SiP",
+      "battery": "18 Hours",
+      "health": "ECG, Blood Oxygen, Heart Rate"
     },
-    "pros": [
-      "Comfortable fabric",
-      "Stylish design"
-    ],
+    "pros": ["Double tap gesture", "Bright display", "Accurate health tracking"],
     "buy_links": {
-      "amazon": "https://www.amazon.in/s?k=mens+casual+shirt",
-      "flipkart": "https://www.flipkart.com/search?q=mens+casual+shirt"
+      "amazon": "https://www.amazon.in/s?k=apple+watch+series+9",
+      "flipkart": "https://www.flipkart.com/search?q=apple+watch+series+9"
     }
   },
-
   {
-    "id": "powerbank_20000",
-    "name": "Power Bank 20000mAh",
-    "category": "Accessories > Electronics",
-    "price": 2000,
+    "id": "gaming_console_ps5",
+    "name": "Sony PlayStation 5 (Slim)",
+    "category": "Electronics > Gaming",
+    "price": 44990,
     "currency": "INR",
-    "tags": ["power bank", "charging", "travel"],
-    "target_user": ["student", "traveler"],
-    "use_cases": ["charging on the go"],
+    "tags": ["gaming", "console", "sony", "ps5"],
+    "target_user": ["gamer", "entertainment"],
+    "use_cases": ["4K gaming", "media streaming"],
     "specs": {
-      "capacity": "20000mAh",
-      "ports": "Dual USB",
-      "fast_charging": "Yes"
+      "storage": "1TB Custom SSD",
+      "resolution": "Up to 4K 120Hz",
+      "controller": "DualSense Wireless",
+      "drive": "Disc Edition (Detachable)"
     },
-    "pros": [
-      "High capacity",
-      "Fast charging support"
-    ],
+    "pros": ["Lightning fast load times", "Immersive DualSense controller", "Exclusive games library"],
     "buy_links": {
-      "amazon": "https://www.amazon.in/s?k=power+bank+20000mah",
-      "flipkart": "https://www.flipkart.com/search?q=power+bank+20000mah"
+      "amazon": "https://www.amazon.in/s?k=playstation+5",
+      "flipkart": "https://www.flipkart.com/search?q=ps5+console"
     }
   },
-
   {
-    "id": "wireless_headphones",
-    "name": "Wireless Bluetooth Headphones",
-    "category": "Accessories > Audio",
-    "price": 3000,
+    "id": "tablet_ipad_air",
+    "name": "Apple iPad Air (5th Gen)",
+    "category": "Electronics > Tablets",
+    "price": 54900,
     "currency": "INR",
-    "tags": ["headphones", "wireless", "music", "calls"],
-    "target_user": ["student", "professional"],
-    "use_cases": ["music", "online classes", "calls"],
+    "tags": ["tablet", "apple", "ipad", "creative"],
+    "target_user": ["student", "artist", "professional"],
+    "use_cases": ["digital art", "note taking", "media consumption"],
     "specs": {
-      "battery": "20 hours",
-      "noise_cancellation": "Passive"
+      "display": "10.9-inch Liquid Retina",
+      "processor": "Apple M1 Chip",
+      "storage": "64GB / 256GB",
+      "stylus": "Apple Pencil (2nd Gen) Supported"
     },
-    "pros": [
-      "Comfortable fit",
-      "Good battery life"
-    ],
+    "pros": ["Desktop-class M1 performance", "Great for drawing", "Vibrant display"],
     "buy_links": {
-      "amazon": "https://www.amazon.in/s?k=wireless+bluetooth+headphones",
-      "flipkart": "https://www.flipkart.com/search?q=wireless+bluetooth+headphones"
+      "amazon": "https://www.amazon.in/s?k=ipad+air+5th+gen",
+      "flipkart": "https://www.flipkart.com/search?q=ipad+air+5"
+    }
+  },
+  {
+    "id": "camera_sony_a7iv",
+    "name": "Sony Alpha 7 IV",
+    "category": "Electronics > Cameras",
+    "price": 214990,
+    "currency": "INR",
+    "tags": ["camera", "photography", "sony", "mirrorless", "video"],
+    "target_user": ["professional photographer", "videographer"],
+    "use_cases": ["wedding photography", "vlogging", "cinematography"],
+    "specs": {
+      "sensor": "33MP Full-Frame Exmor R",
+      "video": "4K 60p",
+      "autofocus": "Real-time Eye AF (Human/Animal/Bird)",
+      "screen": "Fully articulating touch screen"
+    },
+    "pros": ["Hybrid powerhouse (photo + video)", "Incredible autofocus", "High dynamic range"],
+    "buy_links": {
+      "amazon": "https://www.amazon.in/s?k=sony+a7iv",
+      "flipkart": "https://www.flipkart.com/search?q=sony+alpha+7+iv"
+    }
+  },
+  {
+    "id": "monitor_lg_ultrawide",
+    "name": "LG 34-inch Curved Ultrawide Monitor",
+    "category": "Electronics > Monitors",
+    "price": 32000,
+    "currency": "INR",
+    "tags": ["monitor", "lg", "ultrawide", "curved", "productivity"],
+    "target_user": ["programmer", "video editor", "office worker"],
+    "use_cases": ["multitasking", "coding", "timeline editing"],
+    "specs": {
+      "resolution": "WQHD (3440 x 1440)",
+      "refresh_rate": "160Hz",
+      "panel": "VA Curved",
+      "sRGB": "99% Color Gamut"
+    },
+    "pros": ["Massive screen real estate", "Immersive curve", "Smooth high refresh rate"],
+    "buy_links": {
+      "amazon": "https://www.amazon.in/s?k=lg+34+inch+ultrawide+monitor",
+      "flipkart": "https://www.flipkart.com/search?q=lg+34+ultrawide"
+    }
+  },
+  {
+    "id": "mouse_logitech_mxmaster3s",
+    "name": "Logitech MX Master 3S",
+    "category": "Accessories > Peripherals",
+    "price": 8995,
+    "currency": "INR",
+    "tags": ["mouse", "logitech", "wireless", "productivity"],
+    "target_user": ["programmer", "designer", "power user"],
+    "use_cases": ["ergonomic working", "horizontal scrolling", "multi-device workflow"],
+    "specs": {
+      "sensor": "8000 DPI Darkfield",
+      "buttons": "7 customizable buttons",
+      "wheel": "MagSpeed Electromagnetic scroll",
+      "connectivity": "Bluetooth / Logi Bolt (Up to 3 devices)"
+    },
+    "pros": ["Supreme ergonomics", "Quiet clicks", "Works on glass"],
+    "buy_links": {
+      "amazon": "https://www.amazon.in/s?k=logitech+mx+master+3s",
+      "flipkart": "https://www.flipkart.com/search?q=mx+master+3s"
+    }
+  },
+  {
+    "id": "home_vacuum_dyson_v12",
+    "name": "Dyson V12 Detect Slim",
+    "category": "Home Appliances > Cleaning",
+    "price": 49900,
+    "currency": "INR",
+    "tags": ["vacuum", "home", "dyson", "wireless", "cleaning"],
+    "target_user": ["homeowner", "pet owner"],
+    "use_cases": ["deep cleaning", "hard floors", "carpets"],
+    "specs": {
+      "type": "Cordless Stick Vacuum",
+      "battery": "Up to 60 mins",
+      "filtration": "Whole-machine HEPA",
+      "special": "Laser dust detection"
+    },
+    "pros": ["Laser reveals hidden dust", "Lightweight and easy to maneuver", "Powerful suction"],
+    "buy_links": {
+      "amazon": "https://www.amazon.in/s?k=dyson+v12",
+      "flipkart": "https://www.flipkart.com/search?q=dyson+v12+detect"
     }
   }
 ]

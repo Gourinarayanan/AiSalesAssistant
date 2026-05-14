@@ -2,34 +2,56 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>AI Sales Assistant</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <link rel="stylesheet" href="style.css" />
+  <title>SalesSmarty - Premium AI Assistant</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <link rel="stylesheet" href="style.css?v=3" />
 </head>
 <body>
 
 <div class="wa-container">
 
   <div class="wa-header">
-    <div class="avatar">🤖</div>
-    <div class="info">
-      <div class="name">AI Sales Assistant</div>
-      <div class="status">online</div>
+    <div class="avatar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"></path>
+        <circle cx="12" cy="9" r="2.5"></circle>
+      </svg>
     </div>
-    <button class="speaker" onclick="toggleVoice()">🔊</button>
+    <div class="info">
+      <div class="name">SalesSmarty</div>
+      <div class="status">Online</div>
+    </div>
+    <button class="action-btn speaker" onclick="toggleVoice()" aria-label="Toggle Voice">
+      <svg id="speaker-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+        <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+      </svg>
+    </button>
   </div>
 
   <div id="chat-box" class="wa-chat">
     <div class="msg bot">
-      Hi 👋 How can I help you today?
-      <span class="timestamp"></span>
+      Hi 👋 I'm SalesSmarty, your elite AI Sales Assistant. How can I assist you today?
+      <span class="timestamp">Just now</span>
     </div>
   </div>
 
   <div class="wa-input">
-    <button class="mic" onclick="startVoice()">🎙️</button>
-    <input id="user-input" type="text" placeholder="Type a message" />
-    <button class="send" onclick="sendMessage()">➤</button>
+    <button class="action-btn mic" onclick="startVoice()" aria-label="Voice Input">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+        <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+        <line x1="12" y1="19" x2="12" y2="23"></line>
+        <line x1="8" y1="23" x2="16" y2="23"></line>
+      </svg>
+    </button>
+    <input id="user-input" type="text" placeholder="Message SalesSmarty..." autocomplete="off" />
+    <button class="action-btn send" onclick="sendMessage()" aria-label="Send Message">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="transform: translateX(1px); width: 20px; height: 20px;">
+        <line x1="22" y1="2" x2="11" y2="13"></line>
+        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+      </svg>
+    </button>
   </div>
 
 </div>

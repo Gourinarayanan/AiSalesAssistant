@@ -1,7 +1,18 @@
-const chatBox = document.getElementById("chat-box");
-const input = document.getElementById("user-input");
-const micBtn = document.querySelector(".mic");
-const speakerBtn = document.querySelector(".speaker");
+// DOM elements (will be initialized on load)
+let chatBox, input, micBtn, speakerBtn;
+
+// Initialize when DOM is ready
+document.addEventListener('DOMContentLoaded', function() {
+  chatBox = document.getElementById("chat-box");
+  input = document.getElementById("user-input");
+  micBtn = document.querySelector(".mic");
+  speakerBtn = document.querySelector(".speaker");
+  
+  // Attach event listeners
+  input.addEventListener("keydown", e => {
+    if (e.key === "Enter") sendMessage();
+  });
+});
 
 let voiceEnabled = true;
 let recognition;
@@ -9,7 +20,7 @@ let recognition;
 /* =====================
 BACKEND URL
 ===================== */
-const BACKEND_URL = "https://aisalesassistant-backend.onrender.com";
+const BACKEND_URL = "http://127.0.0.1:8000";
 
 /* =====================
 TIME
@@ -54,7 +65,14 @@ ADD MESSAGE
 function addMessage(text, sender) {
 const msg = document.createElement("div");
 msg.className = `msg ${sender}`;
-msg.innerText = text;
+
+// Escape HTML first to prevent XSS from user input or AI
+const escapedText = text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+// Linkify URLs
+const urlRegex = /(https?:\/\/[^\s]+)/g;
+const linkedText = escapedText.replace(urlRegex, '<a href="$1" target="_blank" style="color: #007bff; text-decoration: underline;">$1</a>');
+
+msg.innerHTML = linkedText;
 
 const time = document.createElement("span");
 time.className = "timestamp";
@@ -70,6 +88,17 @@ smartSpeak(text);
 }
 }
 
+function getFallbackReply(userMessage) {
+const lower = userMessage.toLowerCase();
+for (const key in productCatalog) {
+if (lower.includes(key)) {
+const p = productCatalog[key];
+return `I’m offline right now, but here’s a quick product suggestion:\n${p.title} for ${p.price}. ${p.features}.`;
+}
+}
+return "I’m sorry, the AI backend is unavailable. Try again later or ask about student laptop, budget tablet, or power bank.";
+}
+
 /* =====================
 SEND MESSAGE
 ===================== */
@@ -81,8 +110,15 @@ stopSpeaking();
 addMessage(message, "user");
 input.value = "";
 
-addMessage("Typing...", "bot");
-const typing = chatBox.lastChild;
+const typingIndicator = document.createElement("div");
+typingIndicator.className = "msg bot typing-indicator";
+typingIndicator.innerHTML = `
+  <div class="typing-dot"></div>
+  <div class="typing-dot"></div>
+  <div class="typing-dot"></div>
+`;
+chatBox.appendChild(typingIndicator);
+chatBox.scrollTop = chatBox.scrollHeight;
 
 try {
 const res = await fetch(`${BACKEND_URL}/chat`, {
@@ -96,23 +132,22 @@ session_id: "user1"
 })
 });
 
-if (!res.ok) throw new Error("API error");
+if (!res.ok) {
+const errorData = await res.json().catch(() => null);
+throw new Error(errorData?.detail || "API error");
+}
 
 const data = await res.json();
-typing.remove();
+typingIndicator.remove();
 addMessage(data.reply || "No response", "bot");
 
 } catch (err) {
 console.error(err);
-typing.remove();
-addMessage("⚠️ Server not responding. Try again.", "bot");
+typingIndicator.remove();
+addMessage(`⚠️ AI backend unavailable. ${getFallbackReply(message)}`, "bot");
 }
 }
 
-/* ENTER KEY */
-input.addEventListener("keydown", e => {
-if (e.key === "Enter") sendMessage();
-});
 
 /* =====================
 PRODUCT CARD
@@ -132,8 +167,8 @@ card.innerHTML = `
   <div class="product-price">${p.price}</div>
   <div class="product-features">${p.features}</div>
   <div class="product-actions">
-    <button onclick="window.open('${p.amazon}', '_blank')">Amazon</button>
-    <button onclick="window.open('${p.flipkart}', '_blank')">Flipkart</button>
+    <button class="buy-btn" onclick="window.open('${p.amazon}', '_blank')">Amazon</button>
+    <button class="compare-btn" onclick="window.open('${p.flipkart}', '_blank')">Flipkart</button>
   </div>
 `;
 chatBox.appendChild(card);
@@ -141,7 +176,7 @@ chatBox.scrollTop = chatBox.scrollHeight;
 
 }
 }
-
+}
 /* =====================
 VOICE INPUT
 ===================== */
@@ -206,7 +241,14 @@ if ("speechSynthesis" in window) speechSynthesis.cancel();
 TOGGLE VOICE
 ===================== */
 function toggleVoice() {
-voiceEnabled = !voiceEnabled;
-speakerBtn.classList.toggle("muted");
-stopSpeaking();
+  voiceEnabled = !voiceEnabled;
+  speakerBtn.classList.toggle("muted");
+  stopSpeaking();
+  
+  const icon = document.getElementById("speaker-icon");
+  if (voiceEnabled) {
+    icon.innerHTML = '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>';
+  } else {
+    icon.innerHTML = '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line>';
+  }
 }
